@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Production Reveals That Leaderboards Can't</title>
+<meta name="description" content="We ran twelve frontier models on OfficeQA Pro and OfficeQA Pro V2. A single leaderboard score hides three things a production team needs: the grader, the strategy, and the cost.">
+<link rel="canonical" href="https://energentai-labs.github.io/research/papers/what-production-reveals-that-leaderboards-cant/">
+
+<!-- Google Scholar reads these tags. Keep them the same as the PDF. -->
+<meta name="citation_title" content="What Production Reveals That Leaderboards Can't">
+<meta name="citation_author" content="Kong, Lingjie">
+<meta name="citation_author_institution" content="Energent.ai">
+<meta name="citation_author" content="Hu, Rachel">
+<meta name="citation_author_institution" content="Energent.ai">
+<meta name="citation_publication_date" content="2026">
+<meta name="citation_technical_report_institution" content="Energent.ai">
+<meta name="citation_pdf_url" content="https://energentai-labs.github.io/research/papers/what-production-reveals-that-leaderboards-cant/what-production-reveals-that-leaderboards-cant.pdf">
+<meta name="citation_abstract_html_url" content="https://energentai-labs.github.io/research/papers/what-production-reveals-that-leaderboards-cant/">
+
+<!-- Link previews (Slack, X, LinkedIn). -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="What Production Reveals That Leaderboards Can't">
+<meta property="og:description" content="We ran twelve frontier models on OfficeQA Pro and OfficeQA Pro V2. A single leaderboard score hides three things a production team needs: the grader, the strategy, and the cost.">
+<meta property="og:url" content="https://energentai-labs.github.io/research/papers/what-production-reveals-that-leaderboards-cant/">
+
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1b1b1b;
+    --muted: #5c5c5c;
+    --link: #0b57d0;
+    --panel: #f5f5f4;
+    --border: #e3e3e1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121212;
+      --fg: #e9e9e7;
+      --muted: #a3a3a0;
+      --link: #8ab4f8;
+      --panel: #1d1d1c;
+      --border: #333331;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 18px/1.6 Georgia, "Times New Roman", serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 72px; }
+  a { color: var(--link); }
+  .lab, .label, .links, button {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  .lab { font-size: 14px; margin: 0 0 20px; }
+  .lab a { color: var(--muted); text-decoration: none; }
+  h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 16px; }
+  .authors { font-size: 1.15rem; margin: 0; }
+  .affil { color: var(--muted); margin: 2px 0 24px; }
+  .affil a { color: inherit; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
+  .links a {
+    font-size: 15px;
+    text-decoration: none;
+    color: var(--fg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 14px;
+  }
+  .links a:hover { background: var(--panel); }
+  .label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 40px 0 8px;
+  }
+  .cite { position: relative; }
+  pre {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+    margin: 0;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 13px;
+    color: var(--fg);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<main>
+  <p class="lab"><a href="../../">Energent.ai Labs</a> · 2026</p>
+
+  <h1>What Production Reveals That Leaderboards Can't</h1>
+  <p class="authors">Lingjie Kong, Rachel Hu</p>
+  <p class="affil"><a href="https://energent.ai">Energent.ai</a></p>
+
+  <p class="links">
+    <a href="what-production-reveals-that-leaderboards-cant.pdf">PDF</a>
+    <a href="https://github.com/energentai-labs/research/tree/main/papers/what-production-reveals-that-leaderboards-cant">GitHub</a>
+    <a href="#cite">Cite</a>
+  </p>
+
+  <h2 class="label">Abstract</h2>
+  <p>We trusted the leaderboards and shipped their top model to production. But our users reported poor performance, and the leaderboards couldn't say why. So we ran twelve frontier models from OpenAI, Anthropic, and Google DeepMind on OfficeQA Pro and OfficeQA Pro V2, benchmarks of data-analysis tasks over real U.S. government financial reports. All twelve models share the same harness, which scores near or above published results despite lower reasoning effort, so the harness is not the bottleneck. With everything else fixed, we find that a single leaderboard score hides three things a production team needs. (i) Grader: switching from the benchmark's old grading rules to its new ones drops scores by up to 28 points on the same answers. (ii) Strategy: models answer the same questions in very different ways. Two models near the top differ: GPT-6 Astra hands whole documents to subagents, while Claude Fable 5.1 searches for only what it needs. Gemini 3.1 Pro mostly runs code, rarely opens the documents, and scores far below both. (iii) Cost: Astra costs 9&times; more per question than Fable 5.1, for a 3-point lead within single-run noise. The 9&times; comes from 3.9&times; more tokens and a 2.3&times; higher price per token. A score is only as honest as the work behind it. We will release all of ours, every step of every run.</p>
+
+  <h2 class="label" id="cite">Cite this paper</h2>
+  <div class="cite">
+<pre id="bibtex">@techreport{kong2026production,
+  title       = {What Production Reveals That Leaderboards Can't},
+  author      = {Kong, Lingjie and Hu, Rachel},
+  institution = {Energent.ai},
+  year        = {2026},
+  url         = {https://energentai-labs.github.io/research/papers/what-production-reveals-that-leaderboards-cant/}
+}</pre>
+    <button type="button" id="copy">Copy</button>
+  </div>
+</main>
+<script>
+  document.getElementById('copy').addEventListener('click', function () {
+    var button = this;
+    navigator.clipboard.writeText(document.getElementById('bibtex').textContent).then(function () {
+      button.textContent = 'Copied';
+      setTimeout(function () { button.textContent = 'Copy'; }, 1500);
+    });
+  });
+</script>
+</body>
+</html>

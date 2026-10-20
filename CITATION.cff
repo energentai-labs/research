@@ -1,0 +1,25 @@
+# This file controls the "Cite this repository" button on GitHub.
+# The button gives the citation in preferred-citation.
+# When you add a newer paper, replace preferred-citation with the newer paper.
+cff-version: 1.2.0
+message: "If you use this work, cite the paper in preferred-citation."
+title: "Energent.ai Labs Research"
+authors:
+  - name: "Energent.ai Labs"
+    website: "https://energent.ai"
+repository-code: "https://github.com/energentai-labs/research"
+url: "https://energentai-labs.github.io/research/"
+preferred-citation:
+  type: report
+  title: "What Production Reveals That Leaderboards Can't"
+  authors:
+    - family-names: Kong
+      given-names: Lingjie
+      affiliation: Energent.ai
+    - family-names: Hu
+      given-names: Rachel
+      affiliation: Energent.ai
+  institution:
+    name: Energent.ai
+  year: 2026
+  url: "https://energentai-labs.github.io/research/papers/what-production-reveals-that-leaderboards-cant/"
