@@ -1,8 +1,8 @@
 # This file controls the "Cite this repository" button on GitHub.
 # The button gives the citation in preferred-citation.
-# When you add a newer paper, replace preferred-citation with the newer paper.
+# When you add a paper, replace preferred-citation with the data of the new paper.
 cff-version: 1.2.0
-message: "If you use this work, cite the paper in preferred-citation."
+message: "If you use this work, cite the paper below."
 title: "Energent.ai Labs Research"
 authors:
   - name: "Energent.ai Labs"
