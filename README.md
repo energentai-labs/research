@@ -59,12 +59,15 @@ To add a paper, do these steps:
 
 ## Update a paper
 
-A paper can get a new version, for example an arXiv version. To update a paper, do these steps:
+Do not change the folder name or the title. If you change the folder name, the links to the paper do not work. Google Scholar uses the title to show all versions of the paper as one article.
 
-1. Replace the PDF. Keep the same file name.
-2. Add the new link (for example, the arXiv link) to the web page, to the "Papers" table, and to the BibTeX entry.
+If the PDF changes, replace the PDF. Keep the same file name.
 
-Do not change the folder name or the title. If you change the folder name, the links to the paper stop working. Google Scholar uses the title to put all versions of the paper into one entry.
+If arXiv publishes the paper, do these steps:
+
+1. Add the arXiv link to the web page and to the "Papers" table.
+2. In the BibTeX entries in `index.html` and `README.md`, add `eprint = {<arXiv ID>}` and `archivePrefix = {arXiv}`.
+3. If the paper is in `CITATION.cff`, add the arXiv link under `identifiers` in `preferred-citation`.
 
 ## Show a paper on Google Scholar
 
