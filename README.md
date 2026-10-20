@@ -40,16 +40,22 @@ papers/
 To add a paper, do these steps:
 
 1. Make a folder name from the exact title of the paper:
+   - Remove the punctuation, but keep the hyphens.
    - Use lowercase letters.
-   - Put a hyphen between the words.
-   - Remove the punctuation.
+   - Put one hyphen between two words.
+
+   For example, "What Production Reveals That Leaderboards Can't" gives `what-production-reveals-that-leaderboards-cant`.
 2. Make the folder `papers/<folder-name>/`.
-3. Put the PDF in the folder. Use the folder name as the PDF name.
-4. Copy `index.html` from a different paper folder into the new folder.
-5. In the new `index.html`, replace the data of the old paper with the data of the new paper. This includes the `citation_*` tags and the BibTeX entry.
-6. Add the paper to the "Papers" table in this file.
-7. Add the BibTeX entry of the paper to "Cite a paper".
-8. In `CITATION.cff`, replace `preferred-citation` with the data of the new paper.
+3. Compile the PDF from the LaTeX source. Do not use the PDF from an arXiv submission. That PDF has a stamp in the margin.
+4. Put the PDF in the folder. Use the folder name as the PDF name.
+5. Copy `index.html` from a different paper folder into the new folder.
+6. In the new `index.html`, replace each instance of the old folder name and the old title.
+7. Replace the authors, the year, the description, the abstract, and the BibTeX entry.
+8. In `README.md`, add the paper to the "Papers" table.
+9. In `README.md`, add the BibTeX entry of the paper to "Cite a paper".
+10. In `CITATION.cff`, replace `preferred-citation` with the data of the new paper.
+11. Merge the change into `main` with a pull request. GitHub Pages then publishes the web page.
+12. Open the web page. Make sure that the PDF link and the BibTeX entry are correct.
 
 ## Update a paper
 
