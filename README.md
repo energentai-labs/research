@@ -71,12 +71,14 @@ If arXiv publishes the paper, do these steps:
 
 ## Show a paper on Google Scholar
 
-Google Scholar finds a paper from its web page. The `citation_*` tags in `index.html` give Google Scholar the title, the authors, the date, and the address of the PDF. Google Scholar can need some weeks to find a new paper. It is possible that Google Scholar does not find a paper.
+Google Scholar finds a paper from its web page. The `citation_*` tags in `index.html` give Google Scholar the title, the authors, the date, and the address of the PDF. It can be some weeks before Google Scholar finds a new paper. It is possible that Google Scholar does not find a paper.
 
 To show a paper on an author profile before Google Scholar finds it, do these steps:
 
 1. On the Google Scholar profile, click "+".
 2. Click "Add article manually".
 3. Type the exact title, the authors, and the year.
-4. When Google Scholar finds the paper, select the two entries on the profile.
-5. Click "Merge".
+4. Click "Save".
+5. When Google Scholar finds the paper, make sure that the paper is on the profile.
+6. Select the two articles of the paper on the profile.
+7. Click "Merge".
