@@ -2,8 +2,6 @@
 
 This repository contains the research papers of Energent.ai Labs. Energent.ai Labs is the research team of [Energent.ai](https://energent.ai).
 
-Each paper has a PDF and a web page. The web site is [energentai-labs.github.io/research](https://energentai-labs.github.io/research/).
-
 ## Papers
 
 | Year | Paper | Authors |
